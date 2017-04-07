@@ -1,16 +1,15 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
-import { combineReducers } from 'redux';
+import { createStore } from 'redux';
 
-import { List, listReducers } from './list/index.jsx';
+import { ListContainer, listReducers } from './list/index.js';
 
-let store = combineReducers(listReducers);
+let store = createStore(listReducers);
 
 const App = () => (
   <Provider store={store}>
-    Hello World
-    <List />
+    <ListContainer title="Examle Table"/>
   </Provider>
 );
 

@@ -6,4 +6,4 @@ const entireList = {
   listReducers,
 }
 
-export default entireList;
+module.exports = entireList;

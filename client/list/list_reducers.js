@@ -1,15 +1,9 @@
+import { combineReducers } from 'redux';
 
-const listReducer = (state = [], action) => {
-  switch (action) {
-    // case 'FILTER':
-    //   return state;
-    default:
-      return state;
-  }
-}
+import listReducer from './list_reducer.js';
 
-const listReducers = {
-  listReducer
-}
+const listReducers = combineReducers({
+  listReducer,
+});
 
 export default listReducers;
