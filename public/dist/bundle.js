@@ -10455,40 +10455,25 @@ var _react = __webpack_require__(17);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _list_item = __webpack_require__(222);
+
+var _list_item2 = _interopRequireDefault(_list_item);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ListComponent = function ListComponent(_ref) {
   var title = _ref.title,
       items = _ref.items;
-
-  console.log("items in list component", items);
   return _react2.default.createElement(
-    "div",
+    'div',
     null,
     _react2.default.createElement(
-      "div",
+      'div',
       null,
       title
     ),
     items.map(function (item) {
-      var cols = Object.keys(item);
-      return cols.map(function (col) {
-        return _react2.default.createElement(
-          "div",
-          { className: "list_item" },
-          _react2.default.createElement(
-            "span",
-            null,
-            col
-          ),
-          " : ",
-          _react2.default.createElement(
-            "span",
-            null,
-            item[col]
-          )
-        );
-      });
+      return _react2.default.createElement(_list_item2.default, { item: item, key: item[Object.keys(item)[0]] });
     })
   );
 };
@@ -24092,6 +24077,50 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+/* 222 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(17);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ListItem = function ListItem(_ref) {
+  var item = _ref.item;
+  return _react2.default.createElement(
+    "div",
+    null,
+    Object.keys(item).map(function (col) {
+      return _react2.default.createElement(
+        "div",
+        { className: "list_item", key: col },
+        _react2.default.createElement(
+          "span",
+          null,
+          col
+        ),
+        " : ",
+        _react2.default.createElement(
+          "span",
+          null,
+          item[col]
+        )
+      );
+    })
+  );
+};
+
+exports.default = ListItem;
 
 /***/ })
 /******/ ]);

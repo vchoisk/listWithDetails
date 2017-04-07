@@ -1,18 +1,13 @@
 import React from 'react';
 
-const ListComponent = ({title, items}) => {
-  console.log("items in list component", items);
-  return  (<div>
+import ListItem from './list_item.jsx';
+
+const ListComponent = ({title, items}) => (
+  <div>
     <div>{title}</div>
-    {items.map((item) => {
-      let cols = Object.keys(item);
-      return cols.map((col) => (
-        <div className="list_item">
-          <span>{col}</span> : <span>{item[col]}</span>
-        </div>
-      ))
-    })}
-  </div>)
-};
+    {items.map((item) => (
+      <ListItem item={item} key={item[Object.keys(item)[0]]}/>
+    ))}
+  </div>);
 
 export default ListComponent;
